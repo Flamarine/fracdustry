@@ -1,0 +1,20 @@
+modLoader="javafml"
+loaderVersion="[37,)"
+license="All rights reserved"
+[[mods]]
+modId="fracdustry"
+version="${file.jarVersion}"
+displayName="Fractal Industry"
+logoFile="logo.png"
+credits=""
+authors="Arrokoth_486958, , Tapio"
+description='''
+A mod to bring new and unique industrial system to Minecraft.
+'''
+
+[[dependencies.fracdustry]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.17.1,1.18)"
+    ordering="NONE"
+    side="BOTH"

@@ -1,0 +1,1 @@
+This is the repo of project Fractal Industry, being developed by several students.
