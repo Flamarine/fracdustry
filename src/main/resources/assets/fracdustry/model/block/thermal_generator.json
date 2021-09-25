@@ -2,9 +2,9 @@
 	"credit": "Arrokoth made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "fracdustry:block/cabel_noise",
-		"1": "fracdustry:block/thermal_generator",
-		"particle": "fracdustry:block/cabel_noise"
+		"0": "fracdustry:block/thermal_generator/cabel_noise",
+		"1": "fracdustry:block/thermal_generator/thermal_generator",
+		"particle": "fracdustry:block/thermal_generator/cabel_noise"
 	},
 	"elements": [
 		{
@@ -644,8 +644,8 @@
 			}
 		},
 		{
-			"from": [0, 2, 5],
-			"to": [1, 10, 13],
+			"from": [0, 2, 4],
+			"to": [1, 10, 12],
 			"faces": {
 				"north": {"uv": [0.5, 10.5, 0.75, 12.5], "texture": "#1"},
 				"east": {"uv": [6, 5.5, 8, 7.5], "texture": "#1"},
@@ -656,8 +656,8 @@
 			}
 		},
 		{
-			"from": [15, 2, 5],
-			"to": [16, 10, 13],
+			"from": [15, 2, 4],
+			"to": [16, 10, 12],
 			"faces": {
 				"north": {"uv": [10.75, 2, 11, 4], "texture": "#1"},
 				"east": {"uv": [6.5, 2, 8.5, 4], "texture": "#1"},
