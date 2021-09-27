@@ -34,6 +34,9 @@ import javax.annotation.Nullable;
 import java.util.Collections;
 import java.util.Map;
 
+/**
+ * @author Tapio
+ */
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class FDCableBlock extends Block implements EntityBlock {
     public static final String NAME = "fracdustry:cable";
