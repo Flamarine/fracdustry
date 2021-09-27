@@ -1,0 +1,16 @@
+{
+  "block.fracdustry.cable": "Energy Cable",
+
+  "item.fracdustry.aluminum_ingot": "Aluminum Ingot",
+  "item.fracdustry.aluminum_plate": "Aluminum Plate",
+  "item.fracdustry.bronze_ingot": "Bronze Ingot",
+  "item.fracdustry.bronze_plate": "Bronze Plate",
+  "item.fracdustry.steel_ingot": "Steel Ingot",
+  "item.fracdustry.steel_plate": "Steel Plate",
+  "item.fracdustry.tin_ingot": "Tin Ingot",
+  "item.fracdustry.tin_plate": "Tin Plate",
+  "item.fracdustry.titanium_ingot": "Titanium Ingot",
+  "item.fracdustry.titanium_plate": "Titanium Plate",
+
+  "itemGroup.fracdustry_material": "Fracdustry: Material"
+}

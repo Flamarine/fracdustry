@@ -35,7 +35,7 @@ import java.util.Collections;
 import java.util.Map;
 
 /**
- * @author Tapio
+ * @author Tapio, ustc-zzzz
  */
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class FDCableBlock extends Block implements EntityBlock {

@@ -1,0 +1,16 @@
+{
+  "block.fracdustry.cable": "能量线缆",
+
+  "item.fracdustry.aluminum_ingot": "铝锭",
+  "item.fracdustry.aluminum_plate": "铝板",
+  "item.fracdustry.bronze_ingot": "青铜锭",
+  "item.fracdustry.bronze_plate": "青铜板",
+  "item.fracdustry.steel_ingot": "钢锭",
+  "item.fracdustry.steel_plate": "钢板",
+  "item.fracdustry.tin_ingot": "锡锭",
+  "item.fracdustry.tin_plate": "锡板",
+  "item.fracdustry.titanium_ingot": "钛锭",
+  "item.fracdustry.titanium_plate": "钛板",
+
+  "itemGroup.fracdustry_material": "分形工业：材料"
+}
