@@ -1,7 +1,9 @@
 package com.teamfractal.fracdustry.common.item.init;
 
+import com.teamfractal.fracdustry.common.block.init.FDBlocks;
 import com.teamfractal.fracdustry.common.itemGroup.FDGroupInit;
 import com.teamfractal.fracdustry.common.util.FDRegistryHandler;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.fmllegacy.RegistryObject;
 
@@ -17,6 +19,14 @@ public class FDItems
     public static RegistryObject<Item> itemTinPlate;
     public static RegistryObject<Item> itemTitaniumIngot;
     public static RegistryObject<Item> itemTitaniumPlate;
+    public static RegistryObject<Item> blockBauxiteOre;
+    public static RegistryObject<Item> blockCassiteriteOre;
+    public static RegistryObject<Item> blockIlmeniteOre;
+    public static RegistryObject<Item> blockSpodumeneOre;
+    public static RegistryObject<Item> blockDeepslateBauxiteOre;
+    public static RegistryObject<Item> blockDeepslateCassiteriteOre;
+    public static RegistryObject<Item> blockDeepslateIlmeniteOre;
+    public static RegistryObject<Item> blockDeepslateSpodumeneOre;
 
     public static void register()
     {
@@ -31,5 +41,25 @@ public class FDItems
         itemTinPlate = FDRegistryHandler.Items.register("tin_plate", () -> new Item(new Item.Properties().tab(FDGroupInit.fdmaterial)));
         itemTitaniumIngot = FDRegistryHandler.Items.register("titanium_ingot", () -> new Item(new Item.Properties().tab(FDGroupInit.fdmaterial)));
         itemTitaniumPlate = FDRegistryHandler.Items.register("titanium_plate", () -> new Item(new Item.Properties().tab(FDGroupInit.fdmaterial)));
+
+        //Oreblocks
+        blockBauxiteOre = FDRegistryHandler.Items.register("bauxite_ore"
+                , () -> new BlockItem(FDBlocks.blockBauxiteOre.get(),new Item.Properties().tab(FDGroupInit.fdmaterial)));
+        blockCassiteriteOre = FDRegistryHandler.Items.register("cassiterite_ore"
+                , () -> new BlockItem(FDBlocks.blockCassiteriteOre.get(),new Item.Properties().tab(FDGroupInit.fdmaterial)));
+        blockIlmeniteOre = FDRegistryHandler.Items.register("ilmenite_ore"
+                , () -> new BlockItem(FDBlocks.blockIlmeniteOre.get(),new Item.Properties().tab(FDGroupInit.fdmaterial)));
+        blockSpodumeneOre = FDRegistryHandler.Items.register("spodumene_ore"
+                , () -> new BlockItem(FDBlocks.blockSpodumeneOre.get(),new Item.Properties().tab(FDGroupInit.fdmaterial)));
+        blockDeepslateBauxiteOre = FDRegistryHandler.Items.register("deepslate_bauxite_ore"
+                , () -> new BlockItem(FDBlocks.blockDeepslateBauxiteOre.get(),new Item.Properties().tab(FDGroupInit.fdmaterial)));
+        blockDeepslateCassiteriteOre = FDRegistryHandler.Items.register("deepslate_cassiterite_ore"
+                , () -> new BlockItem(FDBlocks.blockDeepslateCassiteriteOre.get(),new Item.Properties().tab(FDGroupInit.fdmaterial)));
+        blockDeepslateIlmeniteOre = FDRegistryHandler.Items.register("deepslate_ilmenite_ore"
+                , () -> new BlockItem(FDBlocks.blockDeepslateIlmeniteOre.get(),new Item.Properties().tab(FDGroupInit.fdmaterial)));
+        blockDeepslateSpodumeneOre = FDRegistryHandler.Items.register("deepslate_spodumene_ore"
+                , () -> new BlockItem(FDBlocks.blockDeepslateSpodumeneOre.get(),new Item.Properties().tab(FDGroupInit.fdmaterial)));
+
     }
+
 }

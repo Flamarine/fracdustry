@@ -1,6 +1,7 @@
 package com.teamfractal.fracdustry.common.util;
 
 import com.teamfractal.fracdustry.common.Fracdustry;
+import com.teamfractal.fracdustry.common.block.init.FDBlocks;
 import com.teamfractal.fracdustry.common.item.init.FDItems;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -19,6 +20,7 @@ public class FDRegistryHandler
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         FDItems.register();
+        FDBlocks.register();
 
         Items.register(eventBus);
         Blocks.register(eventBus);
