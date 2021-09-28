@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "forge:ores/bauxite"
+  },
+  "result": "fracdustry:aluminum_ingot",
+  "experience": 0.35,
+  "cookingtime": 100
+}

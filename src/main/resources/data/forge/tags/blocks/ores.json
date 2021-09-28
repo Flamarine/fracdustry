@@ -1,0 +1,13 @@
+{
+  "values":
+  [
+    "#forge:ores/lithium",
+    "#forge:ores/tin",
+    "#forge:ores/titanium",
+    "#forge:ores/aluminum",
+    "#forge:ores/bauxite",
+    "#forge:ores/ilmenite",
+    "#forge:ores/spodumene",
+    "#forge:ores/cassiterite"
+  ]
+}
