@@ -1,5 +1,13 @@
 {
   "block.fracdustry.cable": "Energy Cable",
+  "block.fracdustry.bauxite_ore": "Bauxite Ore",
+  "block.fracdustry.cassiterite_ore": "Cassiterite Ore",
+  "block.fracdustry.ilmenite_ore": "Ilmenite Ore",
+  "block.fracdustry.spodumene_ore": "Spodumene Ore",
+  "block.fracdustry.deepslate_bauxite_ore": "Deepslate Bauxite Ore",
+  "block.fracdustry.deepslate_cassiterite_ore": "Deepslate Cassiterite Ore",
+  "block.fracdustry.deepslate_ilmenite_ore": "Deepslate Ilmenite Ore",
+  "block.fracdustry.deepslate_spodumene_ore": "Deepslate Spodumene Ore",
 
   "item.fracdustry.aluminum_ingot": "Aluminum Ingot",
   "item.fracdustry.aluminum_plate": "Aluminum Plate",

@@ -1,5 +1,13 @@
 {
   "block.fracdustry.cable": "能量线缆",
+  "block.fracdustry.bauxite_ore": "铝土矿",
+  "block.fracdustry.cassiterite_ore": "锡石矿",
+  "block.fracdustry.ilmenite_ore": "钛铁矿",
+  "block.fracdustry.spodumene_ore": "锂辉石矿",
+  "block.fracdustry.deepslate_bauxite_ore": "深层铝土矿",
+  "block.fracdustry.deepslate_cassiterite_ore": "深层锡石矿",
+  "block.fracdustry.deepslate_ilmenite_ore": "深层钛铁矿",
+  "block.fracdustry.deepslate_spodumene_ore": "深层锂辉石矿",
 
   "item.fracdustry.aluminum_ingot": "铝锭",
   "item.fracdustry.aluminum_plate": "铝板",

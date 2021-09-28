@@ -30,12 +30,12 @@ public class FDBlocks
         blockSpodumeneOre = FDRegistryHandler.Blocks.register("spodumene_ore", () -> new OreBlock(BlockBehaviour.
                 Properties.of(Material.STONE).explosionResistance(2).sound(SoundType.STONE).strength(2).destroyTime(2)));
         blockDeepslateBauxiteOre = FDRegistryHandler.Blocks.register("deepslate_bauxite_ore", () -> new OreBlock(BlockBehaviour.
-                Properties.of(Material.STONE).explosionResistance(3).sound(SoundType.STONE).strength(2).destroyTime(3)));
+                Properties.of(Material.STONE).explosionResistance(3).sound(SoundType.DEEPSLATE).strength(2).destroyTime(3)));
         blockDeepslateCassiteriteOre = FDRegistryHandler.Blocks.register("deepslate_cassiterite_ore", () -> new OreBlock(BlockBehaviour.
-                Properties.of(Material.STONE).explosionResistance(3).sound(SoundType.STONE).strength(2).destroyTime(3)));
+                Properties.of(Material.STONE).explosionResistance(3).sound(SoundType.DEEPSLATE).strength(2).destroyTime(3)));
         blockDeepslateIlmeniteOre = FDRegistryHandler.Blocks.register("deepslate_ilmenite_ore", () -> new OreBlock(BlockBehaviour.
-                Properties.of(Material.STONE).explosionResistance(3).sound(SoundType.STONE).strength(2).destroyTime(3)));
+                Properties.of(Material.STONE).explosionResistance(3).sound(SoundType.DEEPSLATE).strength(2).destroyTime(3)));
         blockDeepslateSpodumeneOre = FDRegistryHandler.Blocks.register("deepslate_spodumene_ore", () -> new OreBlock(BlockBehaviour.
-                Properties.of(Material.STONE).explosionResistance(3).sound(SoundType.STONE).strength(2).destroyTime(3)));
+                Properties.of(Material.STONE).explosionResistance(3).sound(SoundType.DEEPSLATE).strength(2).destroyTime(3)));
     }
 }
