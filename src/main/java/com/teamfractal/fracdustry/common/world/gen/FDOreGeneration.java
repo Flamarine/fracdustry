@@ -28,21 +28,21 @@ public class FDOreGeneration {
         //Overworld
         else{
             genOre(event.getGeneration(), OreConfiguration.Predicates.STONE_ORE_REPLACEABLES
-                    , FDBlocks.blockBauxiteOre.get().defaultBlockState(), 6,3, 64, 12);
+                    , FDBlocks.blockBauxiteOre.get().defaultBlockState(), 6,3, 64, 11);
             genOre(event.getGeneration(), OreConfiguration.Predicates.STONE_ORE_REPLACEABLES
-                    , FDBlocks.blockCassiteriteOre.get().defaultBlockState(), 8,3, 64, 14);
+                    , FDBlocks.blockCassiteriteOre.get().defaultBlockState(), 8,3, 64, 13);
             genOre(event.getGeneration(), OreConfiguration.Predicates.STONE_ORE_REPLACEABLES
-                    , FDBlocks.blockIlmeniteOre.get().defaultBlockState(), 4,3, 64, 11);
+                    , FDBlocks.blockIlmeniteOre.get().defaultBlockState(), 4,3, 64, 12);
             genOre(event.getGeneration(), OreConfiguration.Predicates.STONE_ORE_REPLACEABLES
                     , FDBlocks.blockSpodumeneOre.get().defaultBlockState(), 10,3, 64, 15);
             genOre(event.getGeneration(), OreConfiguration.Predicates.DEEPSLATE_ORE_REPLACEABLES
-                    , FDBlocks.blockDeepslateBauxiteOre.get().defaultBlockState(), 4,3, 64, 8);
+                    , FDBlocks.blockDeepslateBauxiteOre.get().defaultBlockState(), 4,3, 64, 11);
             genOre(event.getGeneration(), OreConfiguration.Predicates.DEEPSLATE_ORE_REPLACEABLES
-                    , FDBlocks.blockDeepslateCassiteriteOre.get().defaultBlockState(), 6,3, 64, 10);
+                    , FDBlocks.blockDeepslateCassiteriteOre.get().defaultBlockState(), 6,3, 64, 13);
             genOre(event.getGeneration(), OreConfiguration.Predicates.DEEPSLATE_ORE_REPLACEABLES
-                    , FDBlocks.blockDeepslateIlmeniteOre.get().defaultBlockState(), 4,3, 64, 7);
+                    , FDBlocks.blockDeepslateIlmeniteOre.get().defaultBlockState(), 4,3, 64, 12);
             genOre(event.getGeneration(), OreConfiguration.Predicates.DEEPSLATE_ORE_REPLACEABLES
-                    , FDBlocks.blockDeepslateSpodumeneOre.get().defaultBlockState(), 8,3, 64, 11);
+                    , FDBlocks.blockDeepslateSpodumeneOre.get().defaultBlockState(), 8,3, 64, 15);
         }
 
     }

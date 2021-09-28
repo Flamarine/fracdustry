@@ -13,6 +13,7 @@ public class FDItems
     public static RegistryObject<Item> itemAluminumPlate;
     public static RegistryObject<Item> itemBronzeIngot;
     public static RegistryObject<Item> itemBronzePlate;
+    public static RegistryObject<Item> itemLithiumIngot;
     public static RegistryObject<Item> itemSteelIngot;
     public static RegistryObject<Item> itemSteelPlate;
     public static RegistryObject<Item> itemTinIngot;
@@ -35,6 +36,7 @@ public class FDItems
         itemAluminumPlate = FDRegistryHandler.Items.register("aluminum_plate", () -> new Item(new Item.Properties().tab(FDGroupInit.fdmaterial)));
         itemBronzeIngot = FDRegistryHandler.Items.register("bronze_ingot", () -> new Item(new Item.Properties().tab(FDGroupInit.fdmaterial)));
         itemBronzePlate = FDRegistryHandler.Items.register("bronze_plate", () -> new Item(new Item.Properties().tab(FDGroupInit.fdmaterial)));
+        itemLithiumIngot = FDRegistryHandler.Items.register("lithium_ingot", () -> new Item(new Item.Properties().tab(FDGroupInit.fdmaterial)));
         itemSteelIngot = FDRegistryHandler.Items.register("steel_ingot", () -> new Item(new Item.Properties().tab(FDGroupInit.fdmaterial)));
         itemSteelPlate = FDRegistryHandler.Items.register("steel_plate", () -> new Item(new Item.Properties().tab(FDGroupInit.fdmaterial)));
         itemTinIngot = FDRegistryHandler.Items.register("tin_ingot", () -> new Item(new Item.Properties().tab(FDGroupInit.fdmaterial)));
