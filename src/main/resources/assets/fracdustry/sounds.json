@@ -1,0 +1,11 @@
+{
+  "modernization": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "fracdustry:modernization",
+        "stream": true
+      }
+    ]
+  }
+}
