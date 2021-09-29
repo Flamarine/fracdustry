@@ -9,6 +9,8 @@
   "block.fracdustry.deepslate_ilmenite_ore": "Deepslate Ilmenite Ore",
   "block.fracdustry.deepslate_spodumene_ore": "Deepslate Spodumene Ore",
 
+  "gui.fracdustry.energy": "Energy: ",
+
   "item.fracdustry.aluminum_ingot": "Aluminum Ingot",
   "item.fracdustry.aluminum_plate": "Aluminum Plate",
   "item.fracdustry.bronze_ingot": "Bronze Ingot",

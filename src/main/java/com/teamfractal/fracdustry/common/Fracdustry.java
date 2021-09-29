@@ -1,10 +1,13 @@
 package com.teamfractal.fracdustry.common;
 
+import com.teamfractal.fracdustry.client.util.FDClientRegistryHandler;
 import com.teamfractal.fracdustry.common.util.FDRegistryHandler;
 import com.teamfractal.fracdustry.common.world.gen.FDOreGeneration;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @Mod(Fracdustry.MODID)
 public class Fracdustry
