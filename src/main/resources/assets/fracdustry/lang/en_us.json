@@ -1,5 +1,8 @@
 {
   "block.fracdustry.cable": "Energy Cable",
+
+  "block.fracdustry.thermal_generator": "Thermal Generator",
+
   "block.fracdustry.bauxite_ore": "Bauxite Ore",
   "block.fracdustry.cassiterite_ore": "Cassiterite Ore",
   "block.fracdustry.ilmenite_ore": "Ilmenite Ore",
@@ -23,5 +26,6 @@
   "item.fracdustry.titanium_ingot": "Titanium Ingot",
   "item.fracdustry.titanium_plate": "Titanium Plate",
 
-  "itemGroup.fracdustry_material": "Fracdustry: Material"
+  "itemGroup.fracdustry_material": "Fracdustry: Material",
+  "itemGroup.fracdustry_machinery": "Fracdustry: Machinery"
 }

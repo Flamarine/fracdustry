@@ -2,11 +2,11 @@ package com.teamfractal.fracdustry.common.block;
 
 import com.google.common.collect.Maps;
 import com.teamfractal.fracdustry.common.blockentity.FDCableBlockEntity;
+import com.teamfractal.fracdustry.common.itemGroup.FDGroupInit;
 import com.teamfractal.fracdustry.common.util.energynetwork.EnergyNetwork;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -53,7 +53,7 @@ public class FDCableBlock extends Block implements EntityBlock {
     @SubscribeEvent
     public static void onRegisterItem(@Nonnull RegistryEvent.Register<Item> event)
     {
-        event.getRegistry().register(new BlockItem(BLOCK, new Item.Properties().tab(CreativeModeTab.TAB_MISC)).setRegistryName(NAME));
+        event.getRegistry().register(new BlockItem(BLOCK, new Item.Properties().tab(FDGroupInit.fdmachinery)).setRegistryName(NAME));
     }
 
     public static final Map<Direction, BooleanProperty> PROPERTY_MAP;

@@ -2,6 +2,7 @@ package com.teamfractal.fracdustry.common.block;
 
 import com.teamfractal.fracdustry.common.blockentity.FDThermalGeneratorBlockEntity;
 import com.teamfractal.fracdustry.common.container.FDThermalGeneratorContainer;
+import com.teamfractal.fracdustry.common.itemGroup.FDGroupInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -15,7 +16,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -32,7 +32,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -71,7 +70,7 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
     @SubscribeEvent
     public static void onRegisterItem(@Nonnull RegistryEvent.Register<Item> event)
     {
-        event.getRegistry().register(new BlockItem(BLOCK, new Item.Properties().tab(CreativeModeTab.TAB_MISC)).setRegistryName(NAME));
+        event.getRegistry().register(new BlockItem(BLOCK, new Item.Properties().tab(FDGroupInit.fdmachinery)).setRegistryName(NAME));
     }
 
     @Override
@@ -124,7 +123,6 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
     @SuppressWarnings("deprecation")
     public VoxelShape getShape(@Nonnull BlockState state, @Nonnull BlockGetter world, @Nonnull BlockPos pos, @Nonnull CollisionContext context)
     {
-        //Vec3 offset = state.getOffset(world,pos);
         Direction d = state.getValue(FACING);
         switch (d) {
             case SOUTH :

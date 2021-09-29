@@ -1,5 +1,8 @@
 {
   "block.fracdustry.cable": "能量线缆",
+
+  "block.fracdustry.thermal_generator": "热力发电机",
+
   "block.fracdustry.bauxite_ore": "铝土矿",
   "block.fracdustry.cassiterite_ore": "锡石矿",
   "block.fracdustry.ilmenite_ore": "钛铁矿",
@@ -23,5 +26,6 @@
   "item.fracdustry.titanium_ingot": "钛锭",
   "item.fracdustry.titanium_plate": "钛板",
 
-  "itemGroup.fracdustry_material": "分形工业：材料"
+  "itemGroup.fracdustry_material": "分形工业：材料",
+  "itemGroup.fracdustry_machinery": "分形工业：机器"
 }
