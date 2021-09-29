@@ -61,7 +61,7 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity {
         if (timer > 0) {
             timer--;
             //todo:make energy generation adjustable in configs
-            energyStorage.addEnergy(50);
+            energyStorage.addEnergy(10);
             setChanged();
         }
 

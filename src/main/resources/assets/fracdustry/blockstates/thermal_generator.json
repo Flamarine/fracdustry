@@ -1,7 +1,5 @@
 {
   "variants": {
-    "facing=up": { "model": "fracdustry:block/thermal_generator" },
-    "facing=down": { "model": "fracdustry:block/thermal_generator" },
     "facing=north": { "model": "fracdustry:block/thermal_generator" },
     "facing=south": { "model": "fracdustry:block/thermal_generator", "y": 180 },
     "facing=west": { "model": "fracdustry:block/thermal_generator", "y": 270 },
