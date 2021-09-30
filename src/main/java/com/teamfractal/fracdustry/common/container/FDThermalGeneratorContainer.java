@@ -1,9 +1,7 @@
 package com.teamfractal.fracdustry.common.container;
 
-import com.teamfractal.fracdustry.common.Fracdustry;
 import com.teamfractal.fracdustry.common.block.FDThermalGeneratorBlock;
 import com.teamfractal.fracdustry.common.container.init.FDContainers;
-import com.teamfractal.fracdustry.common.util.FDRegistryHandler;
 import com.teamfractal.fracdustry.common.util.energystorage.FDEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
@@ -13,8 +11,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.fml.common.Mod;
@@ -22,6 +20,8 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
+
+import java.util.Objects;
 
 //Thank you mcjty!
 
@@ -40,10 +40,10 @@ public class FDThermalGeneratorContainer extends AbstractContainerMenu {
 
         if (blockEntity != null) {
             blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-                addSlot(new SlotItemHandler(h, 0, 64, 24));
+                addSlot(new SlotItemHandler(h, 0, 8, 56));
             });
         }
-        layoutPlayerInventorySlots(10, 70);
+        layoutPlayerInventorySlots(8, 77);
         trackPower();
     }
 
@@ -81,6 +81,19 @@ public class FDThermalGeneratorContainer extends AbstractContainerMenu {
 
     public int getEnergy() {
         return blockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
+    }
+
+    public int getMaxEnergy(){
+        return blockEntity.getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getMaxEnergyStored).orElse(0);
+    }
+
+    public long getTime(){
+        return Objects.requireNonNull(blockEntity.getLevel()).getGameTime();
+    }
+
+
+    public boolean getPowered(){
+        return this.blockEntity.getBlockState().getValue(BlockStateProperties.POWERED);
     }
 
     @Override

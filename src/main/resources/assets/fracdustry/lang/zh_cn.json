@@ -12,6 +12,7 @@
   "block.fracdustry.deepslate_ilmenite_ore": "深层钛铁矿",
   "block.fracdustry.deepslate_spodumene_ore": "深层锂辉石矿",
 
+  "gui.fracdustry.calorific_value":"槽内燃料总热量：",
   "gui.fracdustry.energy": "能量：",
 
   "item.fracdustry.aluminum_ingot": "铝锭",

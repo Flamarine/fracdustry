@@ -47,8 +47,10 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity {
 
     @SubscribeEvent
     public static void onRegisterBlockEntityType(@Nonnull RegistryEvent.Register<BlockEntityType<?>> event) {
-        event.getRegistry().register(BlockEntityType.Builder.of(FDThermalGeneratorBlockEntity::new, FDThermalGeneratorBlock.BLOCK).build(DSL.remainderType()).setRegistryName(NAME));
+        event.getRegistry().register(BlockEntityType.Builder.
+                of(FDThermalGeneratorBlockEntity::new, FDThermalGeneratorBlock.BLOCK).build(DSL.remainderType()).setRegistryName(NAME));
     }
+
 
     @Override
     public void setRemoved() {
@@ -137,6 +139,7 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity {
         timer = tag.getInt("timer");
         super.load(tag);
     }
+
 
     private ItemStackHandler createHandler() {
         return new ItemStackHandler(1) {

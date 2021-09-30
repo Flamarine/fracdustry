@@ -12,6 +12,7 @@
   "block.fracdustry.deepslate_ilmenite_ore": "Deepslate Ilmenite Ore",
   "block.fracdustry.deepslate_spodumene_ore": "Deepslate Spodumene Ore",
 
+  "gui.fracdustry.calorific_value":"Total Heat Quantity of In-slot Fuel: ",
   "gui.fracdustry.energy": "Energy: ",
 
   "item.fracdustry.aluminum_ingot": "Aluminum Ingot",
