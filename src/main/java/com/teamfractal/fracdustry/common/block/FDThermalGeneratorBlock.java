@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -17,6 +18,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -43,6 +46,7 @@ import net.minecraftforge.registries.ObjectHolder;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 
 //Thank you mcjty!
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -158,6 +162,7 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
                         Block.box(14.5, 0.25, 1.75, 15.5, 8.75, 14.5), Block.box(14.5, 8.75, 1.75, 15.5, 11.5, 8.5),
                         Block.box(6.5, 12, 5, 11.5, 14, 10), Block.box(13, 12.25, 9.25, 15.75, 13.25, 14),
                         Block.box(14.5, 9.5, 9.25, 15.75, 12.25, 14));
+
         }
     }
 
@@ -167,10 +172,10 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
         return defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, context.getHorizontalDirection().getOpposite());
     }
 
-    /*@Override
+    @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
-        list.add(new TranslatableComponent("message.generator.tooltip"));
-    }*/
+        list.add(new TranslatableComponent("tooltips.fracdustry.generator"));
+    }
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {

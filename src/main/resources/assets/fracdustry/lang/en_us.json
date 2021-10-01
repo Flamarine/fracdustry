@@ -28,5 +28,7 @@
   "item.fracdustry.titanium_plate": "Titanium Plate",
 
   "itemGroup.fracdustry_material": "Fracdustry: Material",
-  "itemGroup.fracdustry_machinery": "Fracdustry: Machinery"
+  "itemGroup.fracdustry_machinery": "Fracdustry: Machinery",
+
+  "tooltips.fracdustry.generator": "The thermal generator uses thermal energy to heat water to produce steam to provide mechanical energy, which is eventually converted into electrical energy by the built-in kinetic generator."
 }

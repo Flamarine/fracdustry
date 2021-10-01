@@ -28,5 +28,7 @@
   "item.fracdustry.titanium_plate": "钛板",
 
   "itemGroup.fracdustry_material": "分形工业：材料",
-  "itemGroup.fracdustry_machinery": "分形工业：机器"
+  "itemGroup.fracdustry_machinery": "分形工业：机器",
+
+  "tooltips.fracdustry.generator":"热力发电机利用热能加热水产生水蒸气以提供机械能，后者最终由内置的动能发电机转换为电能。"
 }

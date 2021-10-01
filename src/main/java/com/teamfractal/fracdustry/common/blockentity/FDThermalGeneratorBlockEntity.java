@@ -77,6 +77,7 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity {
             }
         }
 
+
         BlockState blockState = null;
         if (level != null) {
             blockState = level.getBlockState(worldPosition);
@@ -118,6 +119,8 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity {
         }
     }
 
+
+
     public FDThermalGeneratorBlockEntity(BlockPos pos, BlockState state)
     {
         super(BLOCK_ENTITY_TYPE,pos,state);
@@ -139,6 +142,7 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity {
         timer = tag.getInt("timer");
         super.load(tag);
     }
+
 
 
     private ItemStackHandler createHandler() {

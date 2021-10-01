@@ -11,12 +11,9 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.energy.CapabilityEnergy;
-import net.minecraftforge.energy.IEnergyStorage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,8 +52,9 @@ public class FDThermalGeneratorScreen extends AbstractContainerScreen<FDThermalG
             renderTooltip(matrixStack,tooltip1,mouseX - relX,mouseY - relY);}
         //Burn time display
         if(mouseX > relX + 9 && mouseX < relX + 25 && mouseY > relY + 8 && mouseY < relY + 46){
-            tooltip2.add(new TextComponent(new TranslatableComponent("gui.fracdustry.calorific_value").getString()+
-                    menu.getSlot(0).getItem().getCount() * ForgeHooks.getBurnTime(menu.getSlot(0).getItem(), RecipeType.SMELTING)).getVisualOrderText());
+            tooltip2.add(new TextComponent(new TranslatableComponent("gui.fracdustry.calorific_value").getString()+ 0)
+                    .getVisualOrderText());
+            //menu.getSlot(0).getItem().getCount() * ForgeHooks.getBurnTime(menu.getSlot(0).getItem(), RecipeType.SMELTING))
             renderTooltip(matrixStack,tooltip2,mouseX - relX,mouseY - relY);}
         }
 
@@ -85,12 +83,13 @@ public class FDThermalGeneratorScreen extends AbstractContainerScreen<FDThermalG
         //Energy Bar Display(not working)
         RenderSystem.setShaderTexture(0,ESHADE);
         blit(matrixStack, relX + 167, relY + 5, 0, 0, 32,
-                ((menu.getMaxEnergy()-menu.getEnergy())/menu.getMaxEnergy())*32,32,32);
+                ((menu.getMaxEnergy()-menu.getEnergy())/menu.getMaxEnergy())*32,32,((menu.getMaxEnergy()-menu.getEnergy())/menu.getMaxEnergy())*32);
         //Heat Bar Display(not working)
         RenderSystem.setShaderTexture(0,CVSHADE);
         ItemStack stack = menu.getSlot(0).getItem();
         blit(matrixStack, relX + 18, relY + 9, 0, 0, 7,
-                37 - ((Math.max((stack.getCount()*(ForgeHooks.getBurnTime(stack,RecipeType.SMELTING))) - 640000,0) / 640000)* 37),7,37 - ((Math.max((stack.getCount()*(ForgeHooks.getBurnTime(stack,RecipeType.SMELTING))) - 640000,0) / 640000)* 37));
+                37 - ((Math.max((stack.getCount()*(ForgeHooks.getBurnTime(stack,RecipeType.SMELTING))) - 640000,0) / 640000)* 37),
+                7,37 - ((Math.max((stack.getCount()*(ForgeHooks.getBurnTime(stack,RecipeType.SMELTING))) - 640000,0) / 640000)* 37));
         blit(matrixStack, relX + 10, relY + 9, 0, 0, 7,
                 37 - ((Math.max((stack.getCount()*(ForgeHooks.getBurnTime(
                         stack,RecipeType.SMELTING))),640000) / 640000)* 37),7,37);
