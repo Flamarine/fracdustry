@@ -1,6 +1,7 @@
 package com.teamfractal.fracdustry.common.container;
 
 import com.teamfractal.fracdustry.common.block.FDThermalGeneratorBlock;
+import com.teamfractal.fracdustry.common.container.datasync.FDThermalGeneratorProcessBar;
 import com.teamfractal.fracdustry.common.container.init.FDContainers;
 import com.teamfractal.fracdustry.common.util.energystorage.FDEnergyStorage;
 import net.minecraft.core.BlockPos;
@@ -21,6 +22,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
+import java.sql.Connection;
 import java.util.Objects;
 
 //Thank you mcjty!
@@ -31,12 +33,15 @@ public class FDThermalGeneratorContainer extends AbstractContainerMenu {
     private BlockEntity blockEntity;
     private Player playerEntity;
     private IItemHandler playerInventory;
+    private FDThermalGeneratorProcessBar intArray;
 
-    public FDThermalGeneratorContainer(int windowId, Level world, BlockPos pos, Inventory playerInventory, Player player) {
+    public FDThermalGeneratorContainer(int windowId, Level world, BlockPos pos, Inventory playerInventory, Player player, FDThermalGeneratorProcessBar intArray) {
         super(FDContainers.containerThermalGenerator.get(), windowId);
         blockEntity = world.getBlockEntity(pos);
         this.playerEntity = player;
         this.playerInventory = new InvWrapper(playerInventory);
+        this.intArray = intArray;
+        addDataSlots(this.intArray);
 
         if (blockEntity != null) {
             blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
@@ -105,7 +110,7 @@ public class FDThermalGeneratorContainer extends AbstractContainerMenu {
     public ItemStack quickMoveStack(Player playerIn, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
-        if (slot != null && slot.hasItem()) {
+        if (slot.hasItem()) {
             ItemStack stack = slot.getItem();
             itemstack = stack.copy();
             if (index == 0) {
@@ -167,5 +172,9 @@ public class FDThermalGeneratorContainer extends AbstractContainerMenu {
         // Hotbar
         topRow += 58;
         addSlotRange(playerInventory, 0, leftCol, topRow, 9, 18);
+    }
+
+    public ContainerData getIntArray(){
+        return intArray;
     }
 }

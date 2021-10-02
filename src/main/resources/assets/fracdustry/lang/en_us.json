@@ -12,7 +12,7 @@
   "block.fracdustry.deepslate_ilmenite_ore": "Deepslate Ilmenite Ore",
   "block.fracdustry.deepslate_spodumene_ore": "Deepslate Spodumene Ore",
 
-  "gui.fracdustry.calorific_value":"Total Heat Quantity of In-slot Fuel: ",
+  "gui.fracdustry.burntime":"Burn Time Left: ",
   "gui.fracdustry.energy": "Energy: ",
 
   "item.fracdustry.aluminum_ingot": "Aluminum Ingot",
@@ -30,5 +30,7 @@
   "itemGroup.fracdustry_material": "Fracdustry: Material",
   "itemGroup.fracdustry_machinery": "Fracdustry: Machinery",
 
-  "tooltips.fracdustry.generator": "The thermal generator uses thermal energy to heat water to produce steam to provide mechanical energy, which is eventually converted into electrical energy by the built-in kinetic generator."
+  "tooltips.fracdustry.generator": "The thermal generator uses thermal energy to heat water to produce steam to provide mechanical energy, which is eventually converted into electrical energy by the built-in kinetic generator.",
+
+  "units.fracdustry.sec": " sec"
 }

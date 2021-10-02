@@ -2,10 +2,20 @@ package com.teamfractal.fracdustry.common.blockentity;
 
 import com.mojang.datafixers.DSL;
 import com.teamfractal.fracdustry.common.block.FDThermalGeneratorBlock;
+import com.teamfractal.fracdustry.common.container.FDThermalGeneratorContainer;
+import com.teamfractal.fracdustry.common.container.datasync.FDThermalGeneratorProcessBar;
 import com.teamfractal.fracdustry.common.util.energystorage.FDEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.Container;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -31,7 +41,7 @@ import javax.annotation.Nullable;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class FDThermalGeneratorBlockEntity extends BlockEntity {
+public class FDThermalGeneratorBlockEntity extends BlockEntity implements MenuProvider {
     public static final String NAME = "fracdustry:thermal_generator";
 
     @ObjectHolder(NAME)
@@ -44,6 +54,7 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity {
     private final LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
     private int timer;
+    private FDThermalGeneratorProcessBar processBar = new FDThermalGeneratorProcessBar();
 
     @SubscribeEvent
     public static void onRegisterBlockEntityType(@Nonnull RegistryEvent.Register<BlockEntityType<?>> event) {
@@ -51,6 +62,17 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity {
                 of(FDThermalGeneratorBlockEntity::new, FDThermalGeneratorBlock.BLOCK).build(DSL.remainderType()).setRegistryName(NAME));
     }
 
+    @Override
+    public Component getDisplayName() {
+        return new TextComponent("");
+    }
+    public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
+
+        if (level != null) {
+            return new FDThermalGeneratorContainer(windowId, level, worldPosition, playerInventory, playerEntity,processBar);
+        }
+        return null;
+    }
 
     @Override
     public void setRemoved() {
@@ -58,6 +80,7 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity {
         handler.invalidate();
         energy.invalidate();
     }
+
 
     public void tickServer(BlockState state) {
         if (timer > 0) {
@@ -76,6 +99,7 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity {
                 setChanged();
             }
         }
+        processBar.set(0,timer);
 
 
         BlockState blockState = null;

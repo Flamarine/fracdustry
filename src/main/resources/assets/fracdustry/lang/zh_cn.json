@@ -12,7 +12,7 @@
   "block.fracdustry.deepslate_ilmenite_ore": "深层钛铁矿",
   "block.fracdustry.deepslate_spodumene_ore": "深层锂辉石矿",
 
-  "gui.fracdustry.calorific_value":"槽内燃料总热量：",
+  "gui.fracdustry.burntime":"燃烧时间剩余：",
   "gui.fracdustry.energy": "能量：",
 
   "item.fracdustry.aluminum_ingot": "铝锭",
@@ -30,5 +30,7 @@
   "itemGroup.fracdustry_material": "分形工业：材料",
   "itemGroup.fracdustry_machinery": "分形工业：机器",
 
-  "tooltips.fracdustry.generator":"热力发电机利用热能加热水产生水蒸气以提供机械能，后者最终由内置的动能发电机转换为电能。"
+  "tooltips.fracdustry.generator":"热力发电机利用热能加热水产生水蒸气以提供机械能，后者最终由内置的动能发电机转换为电能。",
+
+  "units.fracdustry.sec": " 秒"
 }

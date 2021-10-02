@@ -2,6 +2,7 @@ package com.teamfractal.fracdustry.common.block;
 
 import com.teamfractal.fracdustry.common.blockentity.FDThermalGeneratorBlockEntity;
 import com.teamfractal.fracdustry.common.container.FDThermalGeneratorContainer;
+import com.teamfractal.fracdustry.common.container.datasync.FDThermalGeneratorProcessBar;
 import com.teamfractal.fracdustry.common.itemGroup.FDGroupInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -182,7 +183,7 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
         if (!level.isClientSide) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof FDThermalGeneratorBlockEntity) {
-                MenuProvider containerProvider = new MenuProvider() {
+                /*MenuProvider containerProvider = new MenuProvider() {
                     @Override
                     public Component getDisplayName() {
                         return new TextComponent("");
@@ -190,10 +191,12 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
 
                     @Override
                     public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
-                        return new FDThermalGeneratorContainer(windowId, level, pos, playerInventory, playerEntity);
+                        FDThermalGeneratorProcessBar processBar = new FDThermalGeneratorProcessBar();
+                        processBar.set(0,blockEntity.getTileData().getInt("timer"));
+                        return new FDThermalGeneratorContainer(windowId, level, pos, playerInventory, playerEntity,processBar);
                     }
-                };
-                NetworkHooks.openGui((ServerPlayer) player, containerProvider, blockEntity.getBlockPos());
+                };*/
+                NetworkHooks.openGui((ServerPlayer) player, (FDThermalGeneratorBlockEntity)blockEntity, blockEntity.getBlockPos());
             } else {
                 throw new IllegalStateException("Named container provider is missing!");
             }
