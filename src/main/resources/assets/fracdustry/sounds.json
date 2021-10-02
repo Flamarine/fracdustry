@@ -3,7 +3,16 @@
     "category": "music",
     "sounds": [
       {
-        "name": "fracdustry:modernization",
+        "name": "fracdustry:music/modernization",
+        "stream": true
+      }
+    ]
+  },
+  "thermal_generator_loop": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "fracdustry:block/machinery/thermal_generator/tgloop",
         "stream": true
       }
     ]

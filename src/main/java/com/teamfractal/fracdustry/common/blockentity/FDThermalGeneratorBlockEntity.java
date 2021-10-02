@@ -4,23 +4,20 @@ import com.mojang.datafixers.DSL;
 import com.teamfractal.fracdustry.common.block.FDThermalGeneratorBlock;
 import com.teamfractal.fracdustry.common.container.FDThermalGeneratorContainer;
 import com.teamfractal.fracdustry.common.container.datasync.FDThermalGeneratorProcessBar;
+import com.teamfractal.fracdustry.common.sound.FDSounds;
 import com.teamfractal.fracdustry.common.util.energystorage.FDEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.world.Container;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -43,7 +40,6 @@ import net.minecraftforge.registries.ObjectHolder;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -94,6 +90,9 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity implements MenuPr
             //todo:make energy generation adjustable in configs
             energyStorage.addEnergy(10);
             setChanged();
+            if (level != null && level.getGameTime() % 20 == 0) {
+                level.playSound(null, worldPosition, FDSounds.thermal_generator_loop.get(), SoundSource.BLOCKS, 1, 1);
+            }
         }
 
         if (timer <= 0) {
@@ -106,6 +105,7 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity implements MenuPr
             }
         }
         processBar.set(0,timer);
+
 
 
         BlockState blockState = null;
@@ -219,5 +219,6 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity implements MenuPr
         }
         return super.getCapability(cap, side);
     }
+
 
 }

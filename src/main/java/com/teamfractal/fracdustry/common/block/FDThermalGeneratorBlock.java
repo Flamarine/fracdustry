@@ -193,7 +193,10 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
     @Override
     public void animateTick(BlockState blockstate, Level world, BlockPos pos, Random random) {
         super.animateTick(blockstate, world, pos, random);
-        if (blockstate.getValue(BlockStateProperties.POWERED))
-        {world.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pos.getX()+0.5, pos.getY()+1.2, pos.getZ()+0.5, 0, 0, 0);}
+        if (blockstate.getValue(BlockStateProperties.POWERED)) {
+            world.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE
+                    , pos.getX() + 0.5, pos.getY() + 1.2, pos.getZ() + 0.5
+                    , 0, 0, 0);
+        }
     }
-}
+    }

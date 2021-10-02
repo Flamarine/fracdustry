@@ -5,6 +5,7 @@ import com.teamfractal.fracdustry.common.Fracdustry;
 import com.teamfractal.fracdustry.common.block.init.FDBlocks;
 import com.teamfractal.fracdustry.common.container.init.FDContainers;
 import com.teamfractal.fracdustry.common.item.init.FDItems;
+import com.teamfractal.fracdustry.common.sound.FDSounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.Item;
@@ -30,9 +31,11 @@ public class FDRegistryHandler
         FDItems.register();
         FDBlocks.register();
         FDContainers.register();
+        FDSounds.register();
 
         Items.register(eventBus);
         Blocks.register(eventBus);
         Containers.register(eventBus);
+        Sounds.register(eventBus);
     }
 }
