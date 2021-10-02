@@ -8,5 +8,6 @@ Poseidon Li, who offered Java technical support and eye-catching ideas;
 Onisk, who created creative models and plotted mechanism of considerable mod elements;
 CNLimiter, who was a pioneer in 1.17 modding and shared numberless precious code examples;
 Fledge Xu, who wrote a tutorial on 1.16 forge modding;
+@HerbertBoland, who recorded impressive sounds and shared them on Freesound.org;
 
 To be continued...
