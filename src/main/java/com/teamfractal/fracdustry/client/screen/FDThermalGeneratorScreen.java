@@ -23,11 +23,13 @@ import java.util.List;
  */
 public class FDThermalGeneratorScreen extends AbstractContainerScreen<FDThermalGeneratorContainer> {
 
-    private final ResourceLocation BACKGROUND = new ResourceLocation(Fracdustry.MODID, "textures/gui/thermal_generator_screen.png");
-    private final ResourceLocation BUBBLE1 = new ResourceLocation(Fracdustry.MODID, "textures/gui/bubble1.png");
-    private final ResourceLocation BUBBLE2 = new ResourceLocation(Fracdustry.MODID, "textures/gui/bubble2.png");
-    private final ResourceLocation CVSHADE = new ResourceLocation(Fracdustry.MODID,"textures/gui/cvshade.png");
-    private final ResourceLocation ESHADE = new ResourceLocation(Fracdustry.MODID,"textures/gui/energyshade.png");
+    private final ResourceLocation BACKGROUND = new ResourceLocation(Fracdustry.MODID, "textures/gui/thermal_generator/screen.png");
+    private final ResourceLocation BUBBLE1 = new ResourceLocation(Fracdustry.MODID, "textures/gui/thermal_generator/bubble1.png");
+    private final ResourceLocation BUBBLE2 = new ResourceLocation(Fracdustry.MODID, "textures/gui/thermal_generator/bubble2.png");
+    private final ResourceLocation HSHADE = new ResourceLocation(Fracdustry.MODID,"textures/gui/thermal_generator/cvshade.png");
+    private final ResourceLocation ESHADE = new ResourceLocation(Fracdustry.MODID,"textures/gui/thermal_generator/energyshade.png");
+    private final ResourceLocation BAR1 = new ResourceLocation(Fracdustry.MODID,"textures/gui/thermal_generator/heated_bar_1.png");
+    private final ResourceLocation BAR2 = new ResourceLocation(Fracdustry.MODID,"textures/gui/thermal_generator/heated_bar_2.png");
 
     public FDThermalGeneratorScreen(FDThermalGeneratorContainer container, Inventory inv, Component name) {
         super(container, inv, name);
@@ -71,7 +73,7 @@ public class FDThermalGeneratorScreen extends AbstractContainerScreen<FDThermalG
         int relX = (this.width - 180) / 2;
         int relY = (this.height - 152) / 2;
         blit(matrixStack, relX, relY, 0, 0, 180, 152, 180, 152);
-        //Bubbles
+        //Bubbles and heated bars
         if(menu.getPowered())
         {switch (Math.toIntExact(menu.getTime() % 4)){
             default:
@@ -84,7 +86,12 @@ public class FDThermalGeneratorScreen extends AbstractContainerScreen<FDThermalG
             case 3:
                 RenderSystem.setShaderTexture(0,BUBBLE2);
                 blit(matrixStack, relX + 87, relY + 9, 0, 0,64,64,64,64);
-        }}
+        }
+            RenderSystem.setShaderTexture(0,BAR2);
+            blit(matrixStack, relX + 26, relY + 9, 0, 0, 35, 37, 35, 37);
+            RenderSystem.setShaderTexture(0,BAR1);
+            blit(matrixStack, relX + 9, relY + 9, 0, 0, 17, 39, 17, 39);
+        }
         //todo: fix the display issues.
         //Energy Bar Display
         RenderSystem.setShaderTexture(0,ESHADE);
@@ -93,8 +100,8 @@ public class FDThermalGeneratorScreen extends AbstractContainerScreen<FDThermalG
         long height = Math.round(((me - ce) / me) * 32);
         blit(matrixStack, relX + 167, relY + 5, 0, 0, 32,
                 Math.toIntExact(height),32,32);
-        //Heat Bar Display(not working)
-        RenderSystem.setShaderTexture(0,CVSHADE);
+        //Heat Bar Display
+        RenderSystem.setShaderTexture(0,HSHADE);
         ItemStack stack = menu.getSlot(0).getItem();
         double tm = menu.getIntArray().get(0);
         blit(matrixStack, relX + 10, relY + 9, 0, 0, 7,
