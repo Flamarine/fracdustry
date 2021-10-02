@@ -1,22 +1,17 @@
 package com.teamfractal.fracdustry.common.block;
 
 import com.teamfractal.fracdustry.common.blockentity.FDThermalGeneratorBlockEntity;
-import com.teamfractal.fracdustry.common.container.FDThermalGeneratorContainer;
-import com.teamfractal.fracdustry.common.container.datasync.FDThermalGeneratorProcessBar;
 import com.teamfractal.fracdustry.common.itemGroup.FDGroupInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -39,6 +34,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -48,6 +45,7 @@ import net.minecraftforge.registries.ObjectHolder;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Random;
 
 //Thank you mcjty!
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -183,24 +181,19 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
         if (!level.isClientSide) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof FDThermalGeneratorBlockEntity) {
-                /*MenuProvider containerProvider = new MenuProvider() {
-                    @Override
-                    public Component getDisplayName() {
-                        return new TextComponent("");
-                    }
-
-                    @Override
-                    public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
-                        FDThermalGeneratorProcessBar processBar = new FDThermalGeneratorProcessBar();
-                        processBar.set(0,blockEntity.getTileData().getInt("timer"));
-                        return new FDThermalGeneratorContainer(windowId, level, pos, playerInventory, playerEntity,processBar);
-                    }
-                };*/
                 NetworkHooks.openGui((ServerPlayer) player, (FDThermalGeneratorBlockEntity)blockEntity, blockEntity.getBlockPos());
             } else {
                 throw new IllegalStateException("Named container provider is missing!");
             }
         }
         return InteractionResult.SUCCESS;
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    public void animateTick(BlockState blockstate, Level world, BlockPos pos, Random random) {
+        super.animateTick(blockstate, world, pos, random);
+        if (blockstate.getValue(BlockStateProperties.POWERED))
+        {world.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pos.getX()+0.5, pos.getY()+1.2, pos.getZ()+0.5, 0, 0, 0);}
     }
 }
