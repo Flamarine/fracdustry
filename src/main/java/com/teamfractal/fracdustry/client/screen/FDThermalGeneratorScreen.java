@@ -12,8 +12,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraftforge.common.ForgeHooks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,13 +46,13 @@ public class FDThermalGeneratorScreen extends AbstractContainerScreen<FDThermalG
         int relY = (this.height - 152) / 2;
         List<FormattedCharSequence> tooltip1 = new ArrayList<FormattedCharSequence>();
         List<FormattedCharSequence> tooltip2 = new ArrayList<FormattedCharSequence>();
-        //Energy display
+        //Energy tooltip display
         if(mouseX > relX + 166 && mouseX < relX + 173 && mouseY > relY + 4 && mouseY < relY + 37){
             tooltip1.add(new TextComponent(new TranslatableComponent("gui.fracdustry.energy").getString()+
                     menu.getEnergy()+
                     " FE").getVisualOrderText());
             renderTooltip(matrixStack,tooltip1,mouseX - relX,mouseY - relY);}
-        //Burn time display
+        //Burn time tooltip display
         //Gotcha!
         double tm = menu.getIntArray().get(0);
         int bt = Math.toIntExact(Math.round(tm / 20));
@@ -99,7 +97,7 @@ public class FDThermalGeneratorScreen extends AbstractContainerScreen<FDThermalG
         long height = Math.round(((me - ce) / me) * 32);
         blit(matrixStack, relX + 167, relY + 5, 0, 0, 32,
                 Math.toIntExact(height),32,32);
-        //Heat Bar Display
+        //Heat(Fuel) Bar Display
         RenderSystem.setShaderTexture(0,HSHADE);
         ItemStack stack = menu.getSlot(0).getItem();
         double tm = menu.getIntArray().get(0);

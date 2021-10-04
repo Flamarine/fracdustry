@@ -56,6 +56,7 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
     @ObjectHolder(NAME)
     public static FDThermalGeneratorBlock BLOCK;
 
+    //Basic Block Properties
     public FDThermalGeneratorBlock () {
         super(Properties.of(Material.METAL)
                 .sound(SoundType.METAL)
@@ -70,6 +71,7 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
         event.getRegistry().register(new FDThermalGeneratorBlock().setRegistryName(NAME));
     }
 
+    //Register BlockItem
     @SubscribeEvent
     public static void onRegisterItem(@Nonnull RegistryEvent.Register<Item> event)
     {
@@ -81,6 +83,7 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
         return new FDThermalGeneratorBlockEntity(pos, state);
     }
 
+    //Connect BlockEntity Ticking
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
@@ -95,6 +98,7 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
         }
     }
 
+    //These 4 func were introduced by arrokoth, I currently don't know what they are implementing XD
     private static boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, EntityType<?> entityType)
     {
         return false;
@@ -116,11 +120,13 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
     }
 
 
+    //Blockstate:facing and powered
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.POWERED);
     }
 
+    //Four situations of hitbox when block being placed. A bit complex for it's not a standard 1x1x1 block
     @Nonnull
     @Override
     @SuppressWarnings("deprecation")
@@ -165,17 +171,20 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
         }
     }
 
+    //Decides the block's facing direction, and normally it's off when being placed
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         return defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, context.getHorizontalDirection().getOpposite()).setValue(BlockStateProperties.POWERED, false);
     }
 
+    //BlockItem's tooltip
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
         list.add(new TranslatableComponent("tooltips.fracdustry.generator"));
     }
 
+    //Right-click interaction: opens a GUI with container
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
         if (!level.isClientSide) {
@@ -189,6 +198,7 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
         return InteractionResult.SUCCESS;
     }
 
+    //Block's particle effect, when it's working
     @OnlyIn(Dist.CLIENT)
     @Override
     public void animateTick(BlockState blockstate, Level world, BlockPos pos, Random random) {

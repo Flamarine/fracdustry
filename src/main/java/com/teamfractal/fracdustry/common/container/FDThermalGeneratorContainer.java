@@ -21,8 +21,6 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
-
-import java.sql.Connection;
 import java.util.Objects;
 
 //Thank you mcjty!
@@ -35,6 +33,7 @@ public class FDThermalGeneratorContainer extends AbstractContainerMenu {
     private IItemHandler playerInventory;
     private FDThermalGeneratorProcessBar intArray;
 
+    //introduce intArray to pass NBT data of burning time
     public FDThermalGeneratorContainer(int windowId, Level world, BlockPos pos, Inventory playerInventory, Player player, FDThermalGeneratorProcessBar intArray) {
         super(FDContainers.containerThermalGenerator.get(), windowId);
         blockEntity = world.getBlockEntity(pos);
@@ -53,6 +52,7 @@ public class FDThermalGeneratorContainer extends AbstractContainerMenu {
     }
 
 
+    //Below is what mcjty done
     private void trackPower() {
         addDataSlot(new DataSlot() {
             @Override
@@ -106,6 +106,9 @@ public class FDThermalGeneratorContainer extends AbstractContainerMenu {
         return stillValid(ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos()), playerEntity, FDThermalGeneratorBlock.BLOCK);
     }
 
+    //QuickMoveStack is probably what happened when you press Shift and left-click on an itemstack
+    //28 & 37 probably means when you shift&left-click a non-fuel item in hotbar, it will be moved into player's backpack inventory,
+    //instead of the thermal generator's Slot#0
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
@@ -165,6 +168,7 @@ public class FDThermalGeneratorContainer extends AbstractContainerMenu {
         return index;
     }
 
+    //map and overlay the player's inventory slot
     private void layoutPlayerInventorySlots(int leftCol, int topRow) {
         // Player inventory
         addSlotBox(playerInventory, 9, leftCol, topRow, 9, 18, 3, 18);

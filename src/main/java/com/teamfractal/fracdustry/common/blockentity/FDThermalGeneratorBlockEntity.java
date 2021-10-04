@@ -76,6 +76,7 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity implements MenuPr
         return null;
     }
 
+    //Disable capabilities when block is removed
     @Override
     public void setRemoved() {
         super.setRemoved();
@@ -83,7 +84,7 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity implements MenuPr
         energy.invalidate();
     }
 
-
+    //Block's energy generation and sound playing
     public void tickServer(BlockState state) {
         if (timer > 0) {
             timer--;
@@ -107,7 +108,7 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity implements MenuPr
         processBar.set(0,timer);
 
 
-
+        //Set block's property "powered" true or false decided by whether it's burning any fuel
         BlockState blockState = null;
         if (level != null) {
             blockState = level.getBlockState(worldPosition);
@@ -120,6 +121,7 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity implements MenuPr
         sendOutPower();
 
     }
+    //Sending energy to neighbor blocks
     private void sendOutPower() {
         AtomicInteger capacity = new AtomicInteger(energyStorage.getEnergyStored());
         if (capacity.get() > 0) {
@@ -156,6 +158,7 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity implements MenuPr
         super(BLOCK_ENTITY_TYPE,pos,state);
     }
 
+    //NBT saving and loading
     @Override
     public CompoundTag save(@Nonnull  CompoundTag tag) {
         tag.put("inv", itemHandler.serializeNBT());
@@ -174,7 +177,7 @@ public class FDThermalGeneratorBlockEntity extends BlockEntity implements MenuPr
     }
 
 
-
+    //ItemStack Handler on slot#0 the slot of fuel
     private ItemStackHandler createHandler() {
         return new ItemStackHandler(1) {
 
