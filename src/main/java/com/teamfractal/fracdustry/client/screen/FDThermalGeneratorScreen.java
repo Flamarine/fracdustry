@@ -92,7 +92,6 @@ public class FDThermalGeneratorScreen extends AbstractContainerScreen<FDThermalG
             RenderSystem.setShaderTexture(0,BAR1);
             blit(matrixStack, relX + 9, relY + 9, 0, 0, 17, 39, 17, 39);
         }
-        //todo: fix the display issues.
         //Energy Bar Display
         RenderSystem.setShaderTexture(0,ESHADE);
         double ce = menu.getEnergy();
