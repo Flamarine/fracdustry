@@ -181,7 +181,7 @@ public class FDThermalGeneratorBlock extends HorizontalDirectionalBlock implemen
     //BlockItem's tooltip
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
-        list.add(new TranslatableComponent("tooltips.fracdustry.generator"));
+        list.add(new TranslatableComponent("tooltips.fracdustry.thermal_generator"));
     }
 
     //Right-click interaction: opens a GUI with container

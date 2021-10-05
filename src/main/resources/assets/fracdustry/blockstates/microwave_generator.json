@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "fracdustry:block/microwave_generator/microwave_generator" },
+    "facing=south": { "model": "fracdustry:block/microwave_generator/microwave_generator", "y": 180 },
+    "facing=west": { "model": "fracdustry:block/microwave_generator/microwave_generator", "y": 270 },
+    "facing=east": { "model": "fracdustry:block/microwave_generator/microwave_generator", "y": 90 }
+  }
+}

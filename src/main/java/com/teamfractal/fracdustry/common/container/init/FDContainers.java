@@ -1,5 +1,6 @@
 package com.teamfractal.fracdustry.common.container.init;
 
+import com.teamfractal.fracdustry.common.container.FDMicrowaveGeneratorContainer;
 import com.teamfractal.fracdustry.common.container.FDThermalGeneratorContainer;
 import com.teamfractal.fracdustry.common.container.datasync.FDThermalGeneratorProcessBar;
 import com.teamfractal.fracdustry.common.util.FDRegistryHandler;
@@ -11,6 +12,7 @@ import net.minecraftforge.fmllegacy.RegistryObject;
 
 public class FDContainers {
     public static RegistryObject<MenuType<FDThermalGeneratorContainer>> containerThermalGenerator;
+    public static RegistryObject<MenuType<FDMicrowaveGeneratorContainer>> containerMicrowaveGenerator;
 
     public static void register(){
         containerThermalGenerator = FDRegistryHandler.Containers.register("thermal_generator", () -> IForgeContainerType.create((windowId, inv, data) -> {
@@ -18,6 +20,12 @@ public class FDContainers {
             Level world = inv.player.getCommandSenderWorld();
             FDThermalGeneratorProcessBar processBar = new FDThermalGeneratorProcessBar();
             return new FDThermalGeneratorContainer(windowId, world, pos, inv, inv.player, processBar);
+        }));
+
+        containerMicrowaveGenerator = FDRegistryHandler.Containers.register("microwave_generator", () -> IForgeContainerType.create((windowId, inv, data) -> {
+            BlockPos pos = data.readBlockPos();
+            Level world = inv.player.getCommandSenderWorld();
+            return new FDMicrowaveGeneratorContainer(windowId, world, pos, inv, inv.player);
         }));
     }
 

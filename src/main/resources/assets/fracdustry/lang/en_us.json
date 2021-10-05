@@ -2,6 +2,7 @@
   "block.fracdustry.cable": "Energy Cable",
 
   "block.fracdustry.thermal_generator": "Thermal Generator",
+  "block.fracdustry.microwave_generator": "Microwave Generator",
 
   "block.fracdustry.bauxite_ore": "Bauxite Ore",
   "block.fracdustry.cassiterite_ore": "Cassiterite Ore",
@@ -30,7 +31,8 @@
   "itemGroup.fracdustry_material": "Fracdustry: Material",
   "itemGroup.fracdustry_machinery": "Fracdustry: Machinery",
 
-  "tooltips.fracdustry.generator": "The thermal generator uses thermal energy to heat water to produce steam to provide mechanical energy, which is eventually converted into electrical energy by the built-in kinetic generator.",
+  "tooltips.fracdustry.thermal_generator": "The thermal generator uses thermal energy to heat water to produce steam to provide mechanical energy, which is eventually converted into electrical energy by the built-in kinetic generator.",
+  "tooltips.fracdustry.microwave_generator": "Made of special materials, the microwave generator captures microwave signal and convert it into tiny electrical currents.",
 
   "units.fracdustry.sec": " sec"
 }

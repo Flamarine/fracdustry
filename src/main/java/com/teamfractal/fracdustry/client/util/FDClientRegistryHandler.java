@@ -1,5 +1,6 @@
 package com.teamfractal.fracdustry.client.util;
 
+import com.teamfractal.fracdustry.client.screen.FDMicrowaveGeneratorScreen;
 import com.teamfractal.fracdustry.client.screen.FDThermalGeneratorScreen;
 import com.teamfractal.fracdustry.common.Fracdustry;
 import com.teamfractal.fracdustry.common.container.init.FDContainers;
@@ -14,6 +15,7 @@ public class FDClientRegistryHandler {
     public static void setup(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             MenuScreens.register(FDContainers.containerThermalGenerator.get(), FDThermalGeneratorScreen::new);
+            MenuScreens.register(FDContainers.containerMicrowaveGenerator.get(), FDMicrowaveGeneratorScreen::new);
         });
     }
 }
