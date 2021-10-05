@@ -76,7 +76,10 @@ public class FDMicrowaveGeneratorBlockEntity extends BlockEntity implements Menu
 
     public void tickServer(BlockState state) {
         //todo:make energy generation adjustable in configs
-        energyStorage.addEnergy(1);
+        if(level != null && level.canSeeSky(worldPosition)) {
+            energyStorage.addEnergy(1);
+        }
+        
         setChanged();
         if (level != null && level.getGameTime() % 20 == 0) {
             level.playSound(null, worldPosition, FDSounds.thermal_generator_loop.get(), SoundSource.BLOCKS, 1, 1);
